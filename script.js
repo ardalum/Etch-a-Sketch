@@ -1,15 +1,20 @@
 // Select the container element
 const container = document.querySelector(".container");
+const btn = document.querySelector(".btn");
 
-let promptForSize = Number(prompt("Enter a number from 1 to 100"));
+btn.addEventListener("click", () => {
+  const promptForSize = Number(prompt("Enter a number from 1 to 100"));
+  const gridSize = promptForSize * promptForSize;
+  let gridSizeString = `repeat(${promptForSize}, 1fr)`;
+  container.style.gridTemplateColumns = gridSizeString;
 
-let gridSize = promptForSize * promptForSize;
+  // Loop that will create the element based on the grids that is specified
+  for (let i = 0; i < gridSize; i++) {
+    const newElem = document.createElement("div");
+    newElem.className = "grid-div";
+    container.appendChild(newElem);
+  }
 
-let gridSizeString = `repeat(${promptForSize}, 1fr)`;
-
-container.style.gridTemplateColumns = gridSizeString;
-
-const createElem = function (grids) {
   // placeholder to convert the generated bgcolor toString
   let bgColorString;
   // function that will genreate a random colors
@@ -21,13 +26,6 @@ const createElem = function (grids) {
     bgColorString = bgColor.toString();
   };
 
-  // Loop that will create the element based on the grids that is specified
-  for (let i = 0; i < grids; i++) {
-    const newElem = document.createElement("div");
-    newElem.className = "grid-div";
-    container.appendChild(newElem);
-  }
-
   const gridDiv = document.querySelectorAll(".grid-div");
 
   gridDiv.forEach((element) => {
@@ -36,6 +34,4 @@ const createElem = function (grids) {
       element.style.backgroundColor = bgColorString;
     });
   });
-};
-
-createElem(gridSize);
+});
