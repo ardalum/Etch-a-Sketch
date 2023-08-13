@@ -17,9 +17,9 @@ body {
   grid-template-rows: repeat(10, 1fr); */
 }
 
-.grid-div {
-  /* background-color: red; */
-}
+/* .grid-div {
+  background-color: red;
+} */
 
 h1 {
   text-align: center;
@@ -35,15 +35,23 @@ h1 {
   width: 10px;
 }
 
-button {
+.btn {
+  display: flex;
+  gap: 1.8rem;
+  justify-content: center;
+}
+
+.btn-size,
+.btn-clear {
   margin-bottom: 30px;
-  margin-top: 50px;
-  border-radius: 40px;
+  margin-top: 9px;
+  border-radius: 11px;
   display: inline-block;
   padding: 8px 16px;
   font-size: 18px;
   background-color: #adb5bd;
-  color: #f1f3f5;
+  color: #333;
+  font-weight: 700;
 }
 
 .btn {

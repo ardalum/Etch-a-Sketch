@@ -1,8 +1,8 @@
 // Select the container element
 const container = document.querySelector(".container");
-const btn = document.querySelector(".btn");
+const btnSize = document.querySelector(".btn-size");
 
-btn.addEventListener("click", () => {
+btnSize.addEventListener("click", () => {
   const promptForSize = Number(prompt("Enter a number from 1 to 100"));
   const gridSize = promptForSize * promptForSize;
   let gridSizeString = `repeat(${promptForSize}, 1fr)`;
@@ -29,9 +29,17 @@ btn.addEventListener("click", () => {
   const gridDiv = document.querySelectorAll(".grid-div");
 
   gridDiv.forEach((element) => {
-    element.addEventListener("mouseover", () => {
+    element.addEventListener("mousedown", () => {
       randBgColor();
       element.style.backgroundColor = bgColorString;
+    });
+  });
+
+  const btnClear = document.querySelector(".btn-clear");
+
+  btnClear.addEventListener("click", () => {
+    gridDiv.forEach((element) => {
+      element.remove();
     });
   });
 });
